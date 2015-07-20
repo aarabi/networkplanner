@@ -6,60 +6,47 @@ import os, ogr, gdal
 
 if __name__ == '__main__':
 
-    parser = argparse.ArgumentParser(description="convert shapefiles into csv files")
-    parser.add_argument('csv1', type=str, help="type folder/csvname minus the csv")
-    parser.add_argument('csv2', type=str,help="type folder/csvname")
+    shpToCsv =[]
+    for files in glob.glob("convertedcsv/*.csv"):
+        shpToCsv.append(files)
     
-   
-    args = parser.parse_args()
-    filename1 = '%s.csv' % args.csv1
-    filename2 = '%s.csv' % args.csv2
-    
-    
-    if not os.path.isfile(filename1):
-        raise IOError('Could not find file ' + str(filename1))
-
-    source = ogr.Open(filename1, gdal.GA_Update)
-    if source is None:
-        raise IOError('Could open file ' + str(filename1))
-    
-    if not os.path.isfile(filename2):
-        raise IOError('Could not find file ' + str(filename2))
-
-    source = ogr.Open(filename2, gdal.GA_Update)
-    if source is None:
-        raise IOError('Could open file ' + str(filename2))
-    
-
-    point1 = []
-    
-    with open(filename1, 'r') as csvfile:
+    hashmap = {}
+    with open("test_data/sample_demand_nodes.csv", 'r') as csvfile:
+        next(csvfile)
         c1 = csv.reader(csvfile)
-        for hosts_row in c1:
-            row = hosts_row[1]
-            row = row.replace('<LineString><coordinates>','')
-            row = row.replace('</coordinates></LineString>','')
-            row = str(row)
-            point1.extend(row.split(' '))
-
-    row_count1 = sum(1 for row in csv.reader( open(filename1) ) )
-    point2 = []    
+        for row in c1:
+            hashmap[str(round(float(row[2]),6))+","+str(round(float(row[3]),6))]=int(row[1])
+            
     
-    with open(filename2, 'r') as csvfile:
-        c2 = csv.reader(csvfile)
-        for hosts_row in c2:
-            row = hosts_row[1]
-            row = row.replace('<LineString><coordinates>','')
-            row = row.replace('</coordinates></LineString>','')
-            row = str(row)
-            point2.extend(row.split(' '))
-        masterlist = list(c2)
+    totalpop = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    count =0
+    for files in shpToCsv:
+        point1 = []
+        with open(files, 'r') as csvfile:
+            next(csvfile)
+            c1 = csv.reader(csvfile)
+            for hosts_row in c1:
+                row = hosts_row[1]
+                row = row.replace('<LineString><coordinates>','')
+                row = row.replace('</coordinates></LineString>','')
+                row = str(row)
+                point1.extend(row.split(' '))
 
-    print 
-    if(list(set(point1) - set(point2))==[]):
-        print filename1+" & "+filename2+"  NULL"
-    else:
-        print filename1+" & "+filename2
-        temp = len(list(set(point1) - set(point2)))
-        print temp/row_count1
-    
+            point2= []
+            
+            for row in point1:
+                temp1= row.split(",")[0]
+                temp1 =round(float(temp1),6)
+                temp2= row.split(",")[1]
+                temp2 =round(float(temp2),6)
+                string=(str(temp1)+","+str(temp2))
+                point2.append(string)
+
+            
+            
+            for row in point2:
+                if row in hashmap:
+                    totalpop[count]+=hashmap[row]
+                
+            count+=count
+            print totalpop[count]
