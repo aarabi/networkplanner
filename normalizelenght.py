@@ -20,9 +20,17 @@ if __name__ == '__main__':
     
     totalpop = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     count =0
+    donothing=0
     for files in shpToCsv:
         point1 = []
+        point2= {}
+        print files
         with open(files, 'r') as csvfile:
+            
+            del point1[:]
+            del point2
+            point1 = []
+            point2= {}
             next(csvfile)
             c1 = csv.reader(csvfile)
             for hosts_row in c1:
@@ -32,7 +40,7 @@ if __name__ == '__main__':
                 row = str(row)
                 point1.extend(row.split(' '))
 
-            point2= []
+            
             
             for row in point1:
                 temp1= row.split(",")[0]
@@ -40,13 +48,21 @@ if __name__ == '__main__':
                 temp2= row.split(",")[1]
                 temp2 =round(float(temp2),6)
                 string=(str(temp1)+","+str(temp2))
-                point2.append(string)
+                if string in point2:
+                    donothing=0
+                else:
+                    point2[string]=1
 
             
-            
+            #print count
             for row in point2:
+                #print row
                 if row in hashmap:
+                    #print hashmap[row]
                     totalpop[count]+=hashmap[row]
-                
-            count+=count
-            print totalpop[count]
+                    #print totalpop
+            print totalpop[count]   
+            count+=1
+            
+
+    
