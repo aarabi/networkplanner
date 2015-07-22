@@ -61,5 +61,7 @@ if __name__ == '__main__':
     else:
         print filename1+" & "+filename2
         temp = len(list(set(point1) - set(point2)))
+        print list(set(point1) - set(point2))
+        #print temp
         print temp/row_count1
     

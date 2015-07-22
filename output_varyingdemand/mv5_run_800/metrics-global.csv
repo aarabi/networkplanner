@@ -1,0 +1,28 @@
+system (grid),system total,90.0
+system (grid),system total discounted cost,18119599.7861
+system (grid),system total discounted demand,40513432.919
+system (grid),system total discounted recurring cost,11257432.1386
+system (grid),system total existing network length,0
+system (grid),system total external discounted recurring cost,693383.634471
+system (grid),system total external initial cost,2604115.23224
+system (grid),system total initial cost,6862167.64753
+system (grid),system total internal discounted recurring cost,10564048.5041
+system (grid),system total internal initial cost,4258052.41529
+system (grid),system total levelized cost,0.44724918331
+system (grid),system total proposed network length,130205.761612
+system (mini-grid),system total,10.0
+system (mini-grid),system total discounted cost,741674.371035
+system (mini-grid),system total discounted demand,1090670.52336
+system (mini-grid),system total discounted energy storage cost,655779.247302
+system (mini-grid),system total discounted generation cost,687787.771864
+system (mini-grid),system total discounted recurring cost,687024.371035
+system (mini-grid),system total initial cost,54650.0
+system (mini-grid),system total levelized cost,0.680016884248
+system (off-grid),system total,0.0
+system (off-grid),system total discounted cost,0.0
+system (off-grid),system total discounted demand,0.0
+system (off-grid),system total discounted diesel cost,0.0
+system (off-grid),system total discounted diesel fuel cost,0.0
+system (off-grid),system total discounted recurring cost,0.0
+system (off-grid),system total initial cost,0.0
+system (off-grid),system total levelized cost,0
