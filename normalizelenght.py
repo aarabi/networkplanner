@@ -2,67 +2,23 @@ from __future__ import division
 import csv
 import argparse, glob
 import os, ogr, gdal
+import pandas as pd
 
-
+#prints out the length
 if __name__ == '__main__':
 
-    shpToCsv =[]
-    for files in glob.glob("convertedcsv/*.csv"):
-        shpToCsv.append(files)
+   fileNames=["output_varyingdemand/mv5_run_50/metrics-global.csv","output_varyingdemand/mv5_run_60/metrics-global.csv","output_varyingdemand/mv5_run_70/metrics-global.csv","output_varyingdemand/mv5_run_80/metrics-global.csv","output_varyingdemand/mv5_run_90/metrics-global.csv","output_varyingdemand/mv5_run_100/metrics-global.csv","output_varyingdemand/mv5_run_200/metrics-global.csv","output_varyingdemand/mv5_run_300/metrics-global.csv","output_varyingdemand/mv5_run_400/metrics-global.csv","output_varyingdemand/mv5_run_500/metrics-global.csv","output_varyingdemand/mv5_run_600/metrics-global.csv","output_varyingdemand/mv5_run_700/metrics-global.csv","output_varyingdemand/mv5_run_800/metrics-global.csv","output_varyingdemand/mv5_run_900/metrics-global.csv","output_varyingdemand/mv5_run_1000/metrics-global.csv","output_varyingdemand/mv5_run_2000/metrics-global.csv","output_varyingdemand/mv5_run_3000/metrics-global.csv","output_varyingdemand/mv5_run_4000/metrics-global.csv"]
+   gridLengthCount = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+   count =0
+   row_count = 0
+   for files in fileNames:
+    print files
+    with open(files, 'r') as csvfile:
+        c2 = csv.reader(csvfile)
+        count =0
+        for hosts_row in c2:
+            if count ==11:
+                print hosts_row[2]
+            count=count+1
     
-    hashmap = {}
-    with open("test_data/sample_demand_nodes.csv", 'r') as csvfile:
-        next(csvfile)
-        c1 = csv.reader(csvfile)
-        for row in c1:
-            hashmap[str(round(float(row[2]),6))+","+str(round(float(row[3]),6))]=int(row[1])
-            
-    
-    totalpop = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-    count =0
-    donothing=0
-    for files in shpToCsv:
-        point1 = []
-        point2= {}
-        print files
-        with open(files, 'r') as csvfile:
-            
-            del point1[:]
-            del point2
-            point1 = []
-            point2= {}
-            next(csvfile)
-            c1 = csv.reader(csvfile)
-            for hosts_row in c1:
-                row = hosts_row[1]
-                row = row.replace('<LineString><coordinates>','')
-                row = row.replace('</coordinates></LineString>','')
-                row = str(row)
-                point1.extend(row.split(' '))
-
-            
-            
-            for row in point1:
-                temp1= row.split(",")[0]
-                temp1 =round(float(temp1),6)
-                temp2= row.split(",")[1]
-                temp2 =round(float(temp2),6)
-                string=(str(temp1)+","+str(temp2))
-                if string in point2:
-                    donothing=0
-                else:
-                    point2[string]=1
-
-            
-            #print count
-            for row in point2:
-                #print row
-                if row in hashmap:
-                    #print hashmap[row]
-                    totalpop[count]+=hashmap[row]
-                    #print totalpop
-            print totalpop[count]   
-            count+=1
-            
-
-    
+        
