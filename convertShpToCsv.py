@@ -29,17 +29,17 @@ if __name__ == '__main__':
     lyr=ds.GetLayer()
     dfn=lyr.GetLayerDefn()
     nfields=dfn.GetFieldCount()
-    print nfields
+    #print nfields
     fields=[]
     for i in range(nfields):
     	fields.append(dfn.GetFieldDefn(i).GetName())
-    	print dfn.GetFieldDefn(i).GetName()
+    	#print dfn.GetFieldDefn(i).GetName()
     fields.append('kmlgeometry')
     csvwriter = csv.DictWriter(csvfile, fields)
     csvwriter.writeheader()
     #csvfile.write(','.join(fields)+'\n')
     for feat in lyr:
-    	print feat
+    	#print feat
     	attributes=feat.items()
     	geom=feat.GetGeometryRef()
     	#print geom

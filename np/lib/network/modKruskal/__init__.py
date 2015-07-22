@@ -112,10 +112,13 @@ class VariableStore(variable_store.VariableStore):
 
         net = network.Network(segmentFactory, useIndex=True)
         networkRelativePath = self.get(ExistingNetworks)
+        print networkRelativePath
         # If we have existing networks,
         if networkRelativePath:
             # Reconstruct path
-            networkArchivePath = os.path.join(self.state[0].getBasePath(), networkRelativePath)
+            #networkArchivePath = os.path.join(self.state[0].getBasePath(), networkRelativePath)
+            networkArchivePath = networkRelativePath
+            print networkArchivePath
             if not os.path.exists(networkArchivePath):
                 raise variable_store.VariableError('Expected ZIP archive containing shapefile for existing networks')
             isValid, networkPath = store.unzip(networkArchivePath, 'shp')

@@ -61,3 +61,4 @@ python compare.py convertedcsv/mv5_run_3000 convertedcsv/mv5_run_4000
 
 
 python householdscalculate.py 
+python createzip.py
