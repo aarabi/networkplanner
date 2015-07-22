@@ -4,6 +4,8 @@ import shapefile
 import os
 import gdal
 
+# converts each input shapefile into a csv file
+
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description="convert shapefiles into csv files")

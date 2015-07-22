@@ -41,24 +41,24 @@ python convertShpToCsv.py output_varyingdemand/mv5_run_3000/networks-proposed co
 python convertShpToCsv.py output_varyingdemand/mv5_run_4000/networks-proposed convertedcsv/mv5_run_4000
 
 
-python compare.py convertedcsv/mv5_run_50 convertedcsv/mv5_run_60 
-python compare.py convertedcsv/mv5_run_60 convertedcsv/mv5_run_70 
-python compare.py convertedcsv/mv5_run_70 convertedcsv/mv5_run_80 
-python compare.py convertedcsv/mv5_run_80 convertedcsv/mv5_run_90 
-python compare.py convertedcsv/mv5_run_90 convertedcsv/mv5_run_100 
-python compare.py convertedcsv/mv5_run_100 convertedcsv/mv5_run_200 
-python compare.py convertedcsv/mv5_run_200 convertedcsv/mv5_run_300 
-python compare.py convertedcsv/mv5_run_300 convertedcsv/mv5_run_400 
-python compare.py convertedcsv/mv5_run_400 convertedcsv/mv5_run_500 
-python compare.py convertedcsv/mv5_run_500 convertedcsv/mv5_run_600 
-python compare.py convertedcsv/mv5_run_600 convertedcsv/mv5_run_700 
-python compare.py convertedcsv/mv5_run_700 convertedcsv/mv5_run_800 
-python compare.py convertedcsv/mv5_run_800 convertedcsv/mv5_run_900 
-python compare.py convertedcsv/mv5_run_900 convertedcsv/mv5_run_1000 
-python compare.py convertedcsv/mv5_run_1000 convertedcsv/mv5_run_2000 
-python compare.py convertedcsv/mv5_run_2000 convertedcsv/mv5_run_3000 
-python compare.py convertedcsv/mv5_run_3000 convertedcsv/mv5_run_4000 
+python compare.py convertedcsv/mv5_run_50 convertedcsv/mv5_run_60 output_varyingdemand/mv5_run_50/metrics-local
+python compare.py convertedcsv/mv5_run_60 convertedcsv/mv5_run_70 output_varyingdemand/mv5_run_60/metrics-local
+python compare.py convertedcsv/mv5_run_70 convertedcsv/mv5_run_80 output_varyingdemand/mv5_run_70/metrics-local
+python compare.py convertedcsv/mv5_run_80 convertedcsv/mv5_run_90 output_varyingdemand/mv5_run_80/metrics-local
+python compare.py convertedcsv/mv5_run_90 convertedcsv/mv5_run_100 output_varyingdemand/mv5_run_90/metrics-local
+python compare.py convertedcsv/mv5_run_100 convertedcsv/mv5_run_200 output_varyingdemand/mv5_run_100/metrics-local
+python compare.py convertedcsv/mv5_run_200 convertedcsv/mv5_run_300 output_varyingdemand/mv5_run_200/metrics-local
+python compare.py convertedcsv/mv5_run_300 convertedcsv/mv5_run_400 output_varyingdemand/mv5_run_300/metrics-local
+python compare.py convertedcsv/mv5_run_400 convertedcsv/mv5_run_500 output_varyingdemand/mv5_run_400/metrics-local
+python compare.py convertedcsv/mv5_run_500 convertedcsv/mv5_run_600 output_varyingdemand/mv5_run_500/metrics-local
+python compare.py convertedcsv/mv5_run_600 convertedcsv/mv5_run_700 output_varyingdemand/mv5_run_600/metrics-local
+python compare.py convertedcsv/mv5_run_700 convertedcsv/mv5_run_800 output_varyingdemand/mv5_run_700/metrics-local
+python compare.py convertedcsv/mv5_run_800 convertedcsv/mv5_run_900 output_varyingdemand/mv5_run_800/metrics-local
+python compare.py convertedcsv/mv5_run_900 convertedcsv/mv5_run_1000 output_varyingdemand/mv5_run_900/metrics-local
+python compare.py convertedcsv/mv5_run_1000 convertedcsv/mv5_run_2000 output_varyingdemand/mv5_run_1000/metrics-local
+python compare.py convertedcsv/mv5_run_2000 convertedcsv/mv5_run_3000 output_varyingdemand/mv5_run_2000/metrics-local
+python compare.py convertedcsv/mv5_run_3000 convertedcsv/mv5_run_4000 output_varyingdemand/mv5_run_3000/metrics-local
 
 
-python householdscalculate.py 
+python households.calculate.py
 python createzip.py

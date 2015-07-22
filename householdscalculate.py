@@ -5,7 +5,9 @@ import os, ogr, gdal
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-
+# finds the number of households for every demand level
+# calculates the total number of households at each demand level
+# this is done by refering to the huge metrics-local.csv file
 if __name__ == '__main__':
 
     fileNames=["output_varyingdemand/mv5_run_50/metrics-local.csv","output_varyingdemand/mv5_run_60/metrics-local.csv","output_varyingdemand/mv5_run_70/metrics-local.csv","output_varyingdemand/mv5_run_80/metrics-local.csv","output_varyingdemand/mv5_run_90/metrics-local.csv",\

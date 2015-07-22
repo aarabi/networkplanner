@@ -5,6 +5,8 @@ import shapefile
 import os
 import gdal
 
+#creates a zip file of all the output files from the network planner
+# a separate zip for each demand level
 
 if __name__ == '__main__':
 
