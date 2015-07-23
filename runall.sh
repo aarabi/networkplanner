@@ -61,4 +61,4 @@ python compare.py convertedcsv/mv5_run_3000 convertedcsv/mv5_run_4000 output_var
 
 
 python households.calculate.py
-python createzip.py
+python normalizelenght.py

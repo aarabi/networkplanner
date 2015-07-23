@@ -423,6 +423,9 @@ def digestNodesFromCSVStream(sourceStream):
     'Import nodes from a comma separated values stream'
     # Initialize
     rowGenerator = csv.reader(sourceStream)
+    #print rowGenerator
+    #print "***********************************************************"
+    #print ""
     try:
         row = rowGenerator.next()
     except StopIteration:
@@ -451,6 +454,7 @@ def digestNodesFromCSVStream(sourceStream):
         raise DatasetError('Expected spatial reference or labels but found this instead: %s' % labels)
     # Prepare nodePacks
     nodePacks = [dict(itertools.izip(labels, values)) for values in rowGenerator]
+    #print nodePacks
     ignoreNodesWithMissingCoordinates = lambda x: x['x'] != '' and x['y'] != ''
     # Return
     return proj4, filter(ignoreNodesWithMissingCoordinates, nodePacks)

@@ -10,20 +10,20 @@ import gdal
 
 if __name__ == '__main__':
 
+	parser = argparse.ArgumentParser(description="convert shapefiles into csv files")
+	parser.add_argument('pathNames', type=str, help="type folder/csvname minus the csv")
+	parser.add_argument('zipnames', type=str,help="type folder/csvname")
+	args = parser.parse_args()
 	filesToZip= ["dataset.db","metrics-global.csv","metrics-job-input.csv","metrics-local.csv","networks-proposed.dbf","networks-proposed.prj","networks-proposed.shp","networks-proposed.shx"]
-   
-	zipnames=["/mv5_run_50","/mv5_run_60","/mv5_run_70","/mv5_run_80","/mv5_run_90","/mv5_run_100","/mv5_run_200","/mv5_run_300","/mv5_run_400","/mv5_run_500","/mv5_run_600","/mv5_run_700","/mv5_run_800","/mv5_run_900","/mv5_run_1000","/mv5_run_2000","/mv5_run_3000","/mv5_run_4000"]
-	
-	pathNames=["output_varyingdemand/mv5_run_50","output_varyingdemand/mv5_run_60","output_varyingdemand/mv5_run_70","output_varyingdemand/mv5_run_80","output_varyingdemand/mv5_run_90","output_varyingdemand/mv5_run_100","output_varyingdemand/mv5_run_200","output_varyingdemand/mv5_run_300","output_varyingdemand/mv5_run_400","output_varyingdemand/mv5_run_500","output_varyingdemand/mv5_run_600","output_varyingdemand/mv5_run_700","output_varyingdemand/mv5_run_800","output_varyingdemand/mv5_run_900","output_varyingdemand/mv5_run_1000","output_varyingdemand/mv5_run_2000","output_varyingdemand/mv5_run_3000","output_varyingdemand/mv5_run_4000"]
-	
+	zipnames=args.zipnames
+	pathNames=args.pathNames
 	count =0
 	itemcount =0
-	for paths in pathNames:
-		strn = paths + zipnames[count]
-		count = count +1
-		zipname ='%s.zip' % strn
-		zip_archive = ZipFile(zipname,"w")
-		for items in filesToZip:
-			item = paths + "/" + items
-			zip_archive.write(item,items)
-		zip_archive.close()
+	strn = pathNames + zipnames
+	count = count +1
+	zipname ='%s.zip' % strn
+	zip_archive = ZipFile(zipname,"w")
+	for items in filesToZip:
+		item = pathNames + "/" + items
+		zip_archive.write(item,items)
+	zip_archive.close()
