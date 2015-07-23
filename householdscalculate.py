@@ -27,12 +27,15 @@ if __name__ == '__main__':
     	row_count = 0
     	saved_column_grid = df["Metric > System"]
     	saved_column_hh = df["Demand (household) > Target household count"]
+        #print saved_column_hh
     	totalhh[count]=sum(saved_column_hh)
+
     	for row in saved_column_grid:
     		if row == "grid":
     			#print saved_column_hh[row_count]
-    			row_count = row_count+1
+    			
     			householdCount[count]=householdCount[count]+saved_column_hh[row_count]
+                row_count = row_count+1
     			#row_count = row_count +1
     	#print householdCount[count]
     	count=count+1

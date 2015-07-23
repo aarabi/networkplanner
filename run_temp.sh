@@ -13,9 +13,6 @@ python utilities/run_scenario.py mvMax5 input_demand/demand_80.json modKruskal i
 python createzip.py output_varyingdemand/mv5_run_80 /mv5_run_80
 python deleteExistingGrid.py output_varyingdemand/mv5_run_80/metrics-local
 python utilities/run_scenario.py mvMax5 input_demand/demand_90.json modKruskal input_demand/network_params_90.json output_varyingdemand/mv5_run_90 test_data/sample_demand_nodes.csv -t "section_option"
-python createzip.py output_varyingdemand/mv5_run_90 /mv5_run_90
-python deleteExistingGrid.py output_varyingdemand/mv5_run_90/metrics-local
-python utilities/run_scenario.py mvMax5 input_demand/demand_100.json modKruskal input_demand/network_params_100.json output_varyingdemand/mv5_run_100 test_data/sample_demand_nodes.csv -t "section_option"
 
 #convert the shapefile outputs generated to csv
 python convertShpToCsv.py output_varyingdemand/mv5_run_50/networks-proposed convertedcsv/mv5_run_50

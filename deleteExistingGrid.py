@@ -38,16 +38,28 @@ if __name__ == '__main__':
     for row in saved_column_grid:
         row_count=row_count+1
         if row == "grid":
+
+            #print row_count
             hashmap[row_count]=row_count
-    count =-1
+    count =0
+    list_count=0
+    header_list=['Name','Population','Longitude','Latitude']
     with open(filename1, 'rb') as inp, open(changefile, 'wb') as out:
         writer = csv.writer(out)
+        writer.writerow(header_list)
         ins=csv.reader(inp)
         ins.next()
+        ins.next()
         for row in ins:
-            count=count+1
+
             if count not in hashmap:
-                writer.writerow(row)
+                writer.writerow(new_list[list_count])
+                list_count=list_count+1
+            else:
+                print count
+                list_count=list_count+1
+            count=count+1
+
     #with open(changefile, 'rb') as inp:
     #    for row in csv.reader(inp):
     #        print row

@@ -116,8 +116,8 @@ class VariableStore(variable_store.VariableStore):
         # If we have existing networks,
         if networkRelativePath:
             # Reconstruct path
-            #networkArchivePath = os.path.join(self.state[0].getBasePath(), networkRelativePath)
-            networkArchivePath = networkRelativePath
+            networkArchivePath = os.path.join(self.state[0].getBasePath(), networkRelativePath)
+            #networkArchivePath = networkRelativePath
             print networkArchivePath
             if not os.path.exists(networkArchivePath):
                 raise variable_store.VariableError('Expected ZIP archive containing shapefile for existing networks')
