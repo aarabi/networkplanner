@@ -2,6 +2,6 @@
     "algorithm": 
     {"minimum node count per subnetwork": 2},
     "network":
-    {"existing networks": "/media/aarabimadhavan/TheOtherDrive/forkednp/networkplanner/output_varyingdemand/mv5_run_300/mv5_run_300.zip"}
+    {"existing networks": "/media/aarabimadhavan/TheOtherDrive/forkednp/networkplanner/output_varyingdemand/mv5_run_300/merged/merged.zip"}
 }
 

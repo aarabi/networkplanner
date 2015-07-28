@@ -2,7 +2,7 @@ system (grid),system total,2.0
 system (grid),system total discounted cost,31990.6220786
 system (grid),system total discounted demand,14641.7542252
 system (grid),system total discounted recurring cost,13240.487344
-system (grid),system total existing network length,0
+system (grid),system total existing network length,5183.77741475
 system (grid),system total external discounted recurring cost,652.632446456
 system (grid),system total external initial cost,2451.06750488
 system (grid),system total initial cost,18750.1347347

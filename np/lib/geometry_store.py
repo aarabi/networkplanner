@@ -147,6 +147,8 @@ def get_coordinateTransformation(sourceProj4, targetProj4=proj4LL):
 def get_spatialReference(proj4):
     'Return a SpatialReference from proj4'
     spatialReference = osr.SpatialReference()
+    #print ""
+    #print spatialReference
     if spatialReference.ImportFromProj4(proj4):
         raise GeometryError('Could not import proj4: {}'.format(proj4))
     return spatialReference

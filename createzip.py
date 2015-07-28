@@ -9,12 +9,12 @@ import gdal
 # a separate zip for each demand level
 
 if __name__ == '__main__':
-
+	print "creating ZIP"
 	parser = argparse.ArgumentParser(description="convert shapefiles into csv files")
 	parser.add_argument('pathNames', type=str, help="type folder/csvname minus the csv")
 	parser.add_argument('zipnames', type=str,help="type folder/csvname")
 	args = parser.parse_args()
-	filesToZip= ["dataset.db","metrics-global.csv","metrics-job-input.csv","metrics-local.csv","networks-proposed.dbf","networks-proposed.prj","networks-proposed.shp","networks-proposed.shx"]
+	filesToZip= ["merged.dbf","merged.prj","merged.shp","merged.shx"]
 	zipnames=args.zipnames
 	pathNames=args.pathNames
 	count =0
